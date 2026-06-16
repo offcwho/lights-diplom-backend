@@ -9,4 +9,7 @@ export class UpdateProfileDto {
 
   @IsOptional() @IsString() @MaxLength(255)
   address?: string;
+
+  @IsOptional() @IsString()
+  avatarUrl?: string;
 }
