@@ -29,7 +29,7 @@ export class BannersController {
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.admin)
-  @Post()
+  @Post('all')
   create(@Body() dto: CreateBannerDto) {
     return this.service.create(dto);
   }
@@ -37,7 +37,7 @@ export class BannersController {
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.admin)
-  @Patch(':id')
+  @Patch('all/:id')
   update(@Param('id') id: string, @Body() dto: UpdateBannerDto) {
     return this.service.update(id, dto);
   }
@@ -45,7 +45,7 @@ export class BannersController {
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.admin)
-  @Delete(':id')
+  @Delete('all/:id')
   remove(@Param('id') id: string) {
     return this.service.remove(id);
   }
