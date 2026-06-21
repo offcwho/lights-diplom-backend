@@ -1,9 +1,13 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { OrdersService } from './orders.service';
 import { CreateOrderDto } from './dto/create-order.dto';
+import { UpdateOrderDto } from './dto/update-order.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../common/guards/roles.guard';
+import { Roles } from '../common/decorators/roles.decorator';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { UserRole } from '../generated/prisma/enums';
 
 @ApiTags('orders')
 @ApiBearerAuth()
@@ -25,5 +29,12 @@ export class OrdersController {
   @Get(':id')
   findOne(@CurrentUser('id') userId: string, @Param('id') id: string) {
     return this.service.findOne(userId, id);
+  }
+
+  @UseGuards(RolesGuard)
+  @Roles(UserRole.admin)
+  @Patch(':id')
+  updateStatus(@Param('id') id: string, @Body() dto: UpdateOrderDto) {
+    return this.service.updateStatus(id, dto.status);
   }
 }
