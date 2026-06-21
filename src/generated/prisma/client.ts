@@ -79,3 +79,8 @@ export type Order = Prisma.OrderModel
  * 
  */
 export type OrderItem = Prisma.OrderItemModel
+/**
+ * Model Banner
+ * 
+ */
+export type Banner = Prisma.BannerModel
