@@ -131,3 +131,15 @@ model OrderItem {
   price     Float
   quantity  Int
 }
+
+model Banner {
+  id          String  @id @default(uuid())
+  title       String
+  subtitle    String?
+  description String?
+  imageUrl    String
+  action      String?
+  buttonLabel String?
+  isActive    Boolean @default(true)
+  order       Int     @default(0)
+}
