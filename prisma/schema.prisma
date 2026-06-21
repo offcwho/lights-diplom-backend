@@ -44,6 +44,7 @@ model User {
   cart       Cart?
   favourites Favourite[]
   orders     Order[]
+  addresses  Address[]
   avatarUrl  String?
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
@@ -130,6 +131,20 @@ model OrderItem {
   name      String
   price     Float
   quantity  Int
+}
+
+model Address {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  label     String?
+  city      String
+  street    String
+  house     String
+  apartment String?
+  zipCode   String?
+  isDefault Boolean  @default(false)
+  createdAt DateTime @default(now())
 }
 
 model Banner {

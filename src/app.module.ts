@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { AddressesModule } from './addresses/addresses.module';
 import { BannersModule } from './banners/banners.module';
 import { CartModule } from './cart/cart.module';
 import { CategoriesModule } from './categories/categories.module';
@@ -16,6 +17,7 @@ import { ProductsModule } from './products/products.module';
     PrismaModule,
     UsersModule,
     AuthModule,
+    AddressesModule,
     BannersModule,
     CartModule,
     CategoriesModule,
