@@ -28,6 +28,7 @@ enum ProductColor {
 enum OrderStatus {
   cancelled
   new
+  paid
   shipped
   sent
   completed

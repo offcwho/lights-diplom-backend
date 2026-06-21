@@ -30,6 +30,7 @@ export type ProductColor = (typeof ProductColor)[keyof typeof ProductColor]
 export const OrderStatus = {
   cancelled: 'cancelled',
   new: 'new',
+  paid: 'paid',
   shipped: 'shipped',
   sent: 'sent',
   completed: 'completed'
