@@ -25,7 +25,7 @@ export class ProductSpecDto {
   @IsOptional() @IsString()
   mountingType?: string;
 
-  @IsOptional() @IsString() @Min(0)
+  @IsOptional() @IsString()
   packageSize?: string;
 
   @IsOptional() @IsString()
