@@ -1,14 +1,7 @@
 import { Type } from 'class-transformer';
-import {
-  IsArray, IsBoolean, IsEnum, IsInt, IsJSON, IsNumber, IsOptional, IsString, Min,
-  ValidateNested,
-} from 'class-validator';
-
-class AttributeDto {
-  @IsString() name!: string;
-  @IsString() value!: string;
-}
-
+import { IsArray, IsBoolean, IsEnum, IsInt, IsNumber, IsOptional, IsString, Min, ValidateNested } from 'class-validator';
+import { ProductColor } from '../../generated/prisma/enums';
+import { ProductSpecDto } from './product-spec.dto';
 
 export class CreateProductDto {
   @IsString()
@@ -23,17 +16,11 @@ export class CreateProductDto {
   @IsNumber() @Min(0)
   price: number;
 
-  @IsOptional()
-  @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => AttributeDto)
-  attributes?: AttributeDto[];
-
   @IsOptional() @IsString()
   categoryId?: string;
 
-  @IsOptional() @IsString()
-  material?: string;
+  @IsOptional() @IsEnum(ProductColor)
+  color?: ProductColor;
 
   @IsOptional() @IsArray() @IsString({ each: true })
   images?: string[];
@@ -49,4 +36,7 @@ export class CreateProductDto {
 
   @IsOptional() @IsInt() @Min(0)
   stock?: number;
+
+  @IsOptional() @ValidateNested() @Type(() => ProductSpecDto)
+  spec?: ProductSpecDto;
 }

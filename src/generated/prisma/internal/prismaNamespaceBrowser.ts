@@ -54,6 +54,7 @@ export const ModelName = {
   User: 'User',
   Category: 'Category',
   Product: 'Product',
+  ProductSpec: 'ProductSpec',
   Cart: 'Cart',
   CartItem: 'CartItem',
   Favourite: 'Favourite',
@@ -112,8 +113,6 @@ export const ProductScalarFieldEnum = {
   price: 'price',
   categoryId: 'categoryId',
   color: 'color',
-  material: 'material',
-  attributes: 'attributes',
   images: 'images',
   isOnSale: 'isOnSale',
   discountPercent: 'discountPercent',
@@ -124,6 +123,31 @@ export const ProductScalarFieldEnum = {
 } as const
 
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
+
+
+export const ProductSpecScalarFieldEnum = {
+  id: 'id',
+  productId: 'productId',
+  model: 'model',
+  weightKg: 'weightKg',
+  shapes: 'shapes',
+  styles: 'styles',
+  rooms: 'rooms',
+  lampType: 'lampType',
+  maxAreaM2: 'maxAreaM2',
+  mountingType: 'mountingType',
+  packageSize: 'packageSize',
+  frameMaterial: 'frameMaterial',
+  frameColor: 'frameColor',
+  shadeMaterials: 'shadeMaterials',
+  shadeColors: 'shadeColors',
+  colorTemps: 'colorTemps',
+  powerW: 'powerW',
+  lumens: 'lumens',
+  lampCount: 'lampCount'
+} as const
+
+export type ProductSpecScalarFieldEnum = (typeof ProductSpecScalarFieldEnum)[keyof typeof ProductSpecScalarFieldEnum]
 
 
 export const CartScalarFieldEnum = {
@@ -219,14 +243,6 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-export const NullableJsonNullValueInput = {
-  DbNull: DbNull,
-  JsonNull: JsonNull
-} as const
-
-export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
-
-
 export const QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
@@ -241,13 +257,4 @@ export const NullsOrder = {
 } as const
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
-
-
-export const JsonNullValueFilter = {
-  DbNull: DbNull,
-  JsonNull: JsonNull,
-  AnyNull: AnyNull
-} as const
-
-export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 

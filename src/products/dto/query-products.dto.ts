@@ -1,5 +1,5 @@
 import { Transform, Type } from 'class-transformer';
-import { IsBoolean, IsEnum, IsInt, IsNumber, IsOptional, IsString, Min } from 'class-validator';
+import { IsArray, IsBoolean, IsEnum, IsInt, IsNumber, IsOptional, IsString, Min } from 'class-validator';
 
 export enum ProductSort {
   POPULAR = 'popular',
@@ -8,9 +8,12 @@ export enum ProductSort {
   NEWEST = 'newest',
 }
 
+const toArray = ({ value }: { value: unknown }) =>
+  Array.isArray(value) ? value : typeof value === 'string' ? value.split(',').map((v) => v.trim()) : value;
+
 export class QueryProductsDto {
   @IsOptional() @IsString()
-  category?: string; // category slug
+  category?: string;
 
   @IsOptional() @Type(() => Number) @IsNumber() @Min(0)
   minPrice?: number;
@@ -34,4 +37,38 @@ export class QueryProductsDto {
 
   @IsOptional() @Type(() => Number) @IsInt() @Min(1)
   limit?: number = 12;
+
+  // Spec filters
+  @IsOptional() @Transform(toArray) @IsArray() @IsString({ each: true })
+  styles?: string[];
+
+  @IsOptional() @Transform(toArray) @IsArray() @IsString({ each: true })
+  rooms?: string[];
+
+  @IsOptional() @Transform(toArray) @IsArray() @IsString({ each: true })
+  shapes?: string[];
+
+  @IsOptional() @Transform(toArray) @IsArray() @IsString({ each: true })
+  colorTemps?: string[];
+
+  @IsOptional() @IsString()
+  lampType?: string;
+
+  @IsOptional() @IsString()
+  mountingType?: string;
+
+  @IsOptional() @IsString()
+  frameColor?: string;
+
+  @IsOptional() @Type(() => Number) @IsInt() @Min(0)
+  minPowerW?: number;
+
+  @IsOptional() @Type(() => Number) @IsInt() @Min(0)
+  maxPowerW?: number;
+
+  @IsOptional() @Type(() => Number) @IsNumber() @Min(0)
+  minAreaM2?: number;
+
+  @IsOptional() @Type(() => Number) @IsNumber() @Min(0)
+  maxAreaM2?: number;
 }

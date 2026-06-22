@@ -19,6 +19,11 @@ export class ProductsController {
     return this.service.findAll(query);
   }
 
+  @Get('filters')
+  getFilters() {
+    return this.service.getFilters();
+  }
+
   @Get(':slug')
   findOne(@Param('slug') slug: string) {
     return this.service.findBySlug(slug);

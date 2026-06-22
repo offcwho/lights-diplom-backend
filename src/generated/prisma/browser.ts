@@ -33,6 +33,11 @@ export type Category = Prisma.CategoryModel
  */
 export type Product = Prisma.ProductModel
 /**
+ * Model ProductSpec
+ * 
+ */
+export type ProductSpec = Prisma.ProductSpecModel
+/**
  * Model Cart
  * 
  */

@@ -387,6 +387,7 @@ export const ModelName = {
   User: 'User',
   Category: 'Category',
   Product: 'Product',
+  ProductSpec: 'ProductSpec',
   Cart: 'Cart',
   CartItem: 'CartItem',
   Favourite: 'Favourite',
@@ -409,7 +410,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "category" | "product" | "cart" | "cartItem" | "favourite" | "order" | "orderItem" | "address" | "banner"
+    modelProps: "user" | "category" | "product" | "productSpec" | "cart" | "cartItem" | "favourite" | "order" | "orderItem" | "address" | "banner"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -632,6 +633,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.ProductCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.ProductCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProductSpec: {
+      payload: Prisma.$ProductSpecPayload<ExtArgs>
+      fields: Prisma.ProductSpecFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProductSpecFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProductSpecFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload>
+        }
+        findFirst: {
+          args: Prisma.ProductSpecFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProductSpecFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload>
+        }
+        findMany: {
+          args: Prisma.ProductSpecFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload>[]
+        }
+        create: {
+          args: Prisma.ProductSpecCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload>
+        }
+        createMany: {
+          args: Prisma.ProductSpecCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProductSpecCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload>[]
+        }
+        delete: {
+          args: Prisma.ProductSpecDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload>
+        }
+        update: {
+          args: Prisma.ProductSpecUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProductSpecDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProductSpecUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProductSpecUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProductSpecUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProductSpecPayload>
+        }
+        aggregate: {
+          args: Prisma.ProductSpecAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProductSpec>
+        }
+        groupBy: {
+          args: Prisma.ProductSpecGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProductSpecGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProductSpecCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProductSpecCountAggregateOutputType> | number
         }
       }
     }
@@ -1225,8 +1300,6 @@ export const ProductScalarFieldEnum = {
   price: 'price',
   categoryId: 'categoryId',
   color: 'color',
-  material: 'material',
-  attributes: 'attributes',
   images: 'images',
   isOnSale: 'isOnSale',
   discountPercent: 'discountPercent',
@@ -1237,6 +1310,31 @@ export const ProductScalarFieldEnum = {
 } as const
 
 export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
+
+
+export const ProductSpecScalarFieldEnum = {
+  id: 'id',
+  productId: 'productId',
+  model: 'model',
+  weightKg: 'weightKg',
+  shapes: 'shapes',
+  styles: 'styles',
+  rooms: 'rooms',
+  lampType: 'lampType',
+  maxAreaM2: 'maxAreaM2',
+  mountingType: 'mountingType',
+  packageSize: 'packageSize',
+  frameMaterial: 'frameMaterial',
+  frameColor: 'frameColor',
+  shadeMaterials: 'shadeMaterials',
+  shadeColors: 'shadeColors',
+  colorTemps: 'colorTemps',
+  powerW: 'powerW',
+  lumens: 'lumens',
+  lampCount: 'lampCount'
+} as const
+
+export type ProductSpecScalarFieldEnum = (typeof ProductSpecScalarFieldEnum)[keyof typeof ProductSpecScalarFieldEnum]
 
 
 export const CartScalarFieldEnum = {
@@ -1332,14 +1430,6 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-export const NullableJsonNullValueInput = {
-  DbNull: DbNull,
-  JsonNull: JsonNull
-} as const
-
-export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
-
-
 export const QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
@@ -1354,15 +1444,6 @@ export const NullsOrder = {
 } as const
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
-
-
-export const JsonNullValueFilter = {
-  DbNull: DbNull,
-  JsonNull: JsonNull,
-  AnyNull: AnyNull
-} as const
-
-export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
 
@@ -1438,20 +1519,6 @@ export type EnumProductColorFieldRefInput<$PrismaModel> = FieldRefInputType<$Pri
  * Reference to a field of type 'ProductColor[]'
  */
 export type ListEnumProductColorFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProductColor[]'>
-    
-
-
-/**
- * Reference to a field of type 'Json'
- */
-export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-/**
- * Reference to a field of type 'QueryMode'
- */
-export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -1602,6 +1669,7 @@ export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   category?: Prisma.CategoryOmit
   product?: Prisma.ProductOmit
+  productSpec?: Prisma.ProductSpecOmit
   cart?: Prisma.CartOmit
   cartItem?: Prisma.CartItemOmit
   favourite?: Prisma.FavouriteOmit
