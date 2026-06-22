@@ -48,6 +48,7 @@ export type ProductMinAggregateOutputType = {
   price: number | null
   categoryId: string | null
   color: $Enums.ProductColor | null
+  isActive: boolean | null
   isOnSale: boolean | null
   discountPercent: number | null
   popularity: number | null
@@ -64,6 +65,7 @@ export type ProductMaxAggregateOutputType = {
   price: number | null
   categoryId: string | null
   color: $Enums.ProductColor | null
+  isActive: boolean | null
   isOnSale: boolean | null
   discountPercent: number | null
   popularity: number | null
@@ -81,6 +83,7 @@ export type ProductCountAggregateOutputType = {
   categoryId: number
   color: number
   images: number
+  isActive: number
   isOnSale: number
   discountPercent: number
   popularity: number
@@ -113,6 +116,7 @@ export type ProductMinAggregateInputType = {
   price?: true
   categoryId?: true
   color?: true
+  isActive?: true
   isOnSale?: true
   discountPercent?: true
   popularity?: true
@@ -129,6 +133,7 @@ export type ProductMaxAggregateInputType = {
   price?: true
   categoryId?: true
   color?: true
+  isActive?: true
   isOnSale?: true
   discountPercent?: true
   popularity?: true
@@ -146,6 +151,7 @@ export type ProductCountAggregateInputType = {
   categoryId?: true
   color?: true
   images?: true
+  isActive?: true
   isOnSale?: true
   discountPercent?: true
   popularity?: true
@@ -250,6 +256,7 @@ export type ProductGroupByOutputType = {
   categoryId: string | null
   color: $Enums.ProductColor | null
   images: string[]
+  isActive: boolean
   isOnSale: boolean
   discountPercent: number
   popularity: number
@@ -290,6 +297,7 @@ export type ProductWhereInput = {
   categoryId?: Prisma.StringNullableFilter<"Product"> | string | null
   color?: Prisma.EnumProductColorNullableFilter<"Product"> | $Enums.ProductColor | null
   images?: Prisma.StringNullableListFilter<"Product">
+  isActive?: Prisma.BoolFilter<"Product"> | boolean
   isOnSale?: Prisma.BoolFilter<"Product"> | boolean
   discountPercent?: Prisma.IntFilter<"Product"> | number
   popularity?: Prisma.IntFilter<"Product"> | number
@@ -312,6 +320,7 @@ export type ProductOrderByWithRelationInput = {
   categoryId?: Prisma.SortOrderInput | Prisma.SortOrder
   color?: Prisma.SortOrderInput | Prisma.SortOrder
   images?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   isOnSale?: Prisma.SortOrder
   discountPercent?: Prisma.SortOrder
   popularity?: Prisma.SortOrder
@@ -337,6 +346,7 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
   categoryId?: Prisma.StringNullableFilter<"Product"> | string | null
   color?: Prisma.EnumProductColorNullableFilter<"Product"> | $Enums.ProductColor | null
   images?: Prisma.StringNullableListFilter<"Product">
+  isActive?: Prisma.BoolFilter<"Product"> | boolean
   isOnSale?: Prisma.BoolFilter<"Product"> | boolean
   discountPercent?: Prisma.IntFilter<"Product"> | number
   popularity?: Prisma.IntFilter<"Product"> | number
@@ -359,6 +369,7 @@ export type ProductOrderByWithAggregationInput = {
   categoryId?: Prisma.SortOrderInput | Prisma.SortOrder
   color?: Prisma.SortOrderInput | Prisma.SortOrder
   images?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   isOnSale?: Prisma.SortOrder
   discountPercent?: Prisma.SortOrder
   popularity?: Prisma.SortOrder
@@ -384,6 +395,7 @@ export type ProductScalarWhereWithAggregatesInput = {
   categoryId?: Prisma.StringNullableWithAggregatesFilter<"Product"> | string | null
   color?: Prisma.EnumProductColorNullableWithAggregatesFilter<"Product"> | $Enums.ProductColor | null
   images?: Prisma.StringNullableListFilter<"Product">
+  isActive?: Prisma.BoolWithAggregatesFilter<"Product"> | boolean
   isOnSale?: Prisma.BoolWithAggregatesFilter<"Product"> | boolean
   discountPercent?: Prisma.IntWithAggregatesFilter<"Product"> | number
   popularity?: Prisma.IntWithAggregatesFilter<"Product"> | number
@@ -400,6 +412,7 @@ export type ProductCreateInput = {
   price: number
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -422,6 +435,7 @@ export type ProductUncheckedCreateInput = {
   categoryId?: string | null
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -442,6 +456,7 @@ export type ProductUpdateInput = {
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -464,6 +479,7 @@ export type ProductUncheckedUpdateInput = {
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -485,6 +501,7 @@ export type ProductCreateManyInput = {
   categoryId?: string | null
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -501,6 +518,7 @@ export type ProductUpdateManyMutationInput = {
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -518,6 +536,7 @@ export type ProductUncheckedUpdateManyInput = {
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -553,6 +572,7 @@ export type ProductCountOrderByAggregateInput = {
   categoryId?: Prisma.SortOrder
   color?: Prisma.SortOrder
   images?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   isOnSale?: Prisma.SortOrder
   discountPercent?: Prisma.SortOrder
   popularity?: Prisma.SortOrder
@@ -576,6 +596,7 @@ export type ProductMaxOrderByAggregateInput = {
   price?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   isOnSale?: Prisma.SortOrder
   discountPercent?: Prisma.SortOrder
   popularity?: Prisma.SortOrder
@@ -592,6 +613,7 @@ export type ProductMinOrderByAggregateInput = {
   price?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   isOnSale?: Prisma.SortOrder
   discountPercent?: Prisma.SortOrder
   popularity?: Prisma.SortOrder
@@ -758,6 +780,7 @@ export type ProductCreateWithoutCategoryInput = {
   price: number
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -778,6 +801,7 @@ export type ProductUncheckedCreateWithoutCategoryInput = {
   price: number
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -828,6 +852,7 @@ export type ProductScalarWhereInput = {
   categoryId?: Prisma.StringNullableFilter<"Product"> | string | null
   color?: Prisma.EnumProductColorNullableFilter<"Product"> | $Enums.ProductColor | null
   images?: Prisma.StringNullableListFilter<"Product">
+  isActive?: Prisma.BoolFilter<"Product"> | boolean
   isOnSale?: Prisma.BoolFilter<"Product"> | boolean
   discountPercent?: Prisma.IntFilter<"Product"> | number
   popularity?: Prisma.IntFilter<"Product"> | number
@@ -844,6 +869,7 @@ export type ProductCreateWithoutSpecInput = {
   price: number
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -865,6 +891,7 @@ export type ProductUncheckedCreateWithoutSpecInput = {
   categoryId?: string | null
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -900,6 +927,7 @@ export type ProductUpdateWithoutSpecInput = {
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -921,6 +949,7 @@ export type ProductUncheckedUpdateWithoutSpecInput = {
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -940,6 +969,7 @@ export type ProductCreateWithoutCartItemsInput = {
   price: number
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -961,6 +991,7 @@ export type ProductUncheckedCreateWithoutCartItemsInput = {
   categoryId?: string | null
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -996,6 +1027,7 @@ export type ProductUpdateWithoutCartItemsInput = {
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1017,6 +1049,7 @@ export type ProductUncheckedUpdateWithoutCartItemsInput = {
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1036,6 +1069,7 @@ export type ProductCreateWithoutFavouritesInput = {
   price: number
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -1057,6 +1091,7 @@ export type ProductUncheckedCreateWithoutFavouritesInput = {
   categoryId?: string | null
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -1092,6 +1127,7 @@ export type ProductUpdateWithoutFavouritesInput = {
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1113,6 +1149,7 @@ export type ProductUncheckedUpdateWithoutFavouritesInput = {
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1132,6 +1169,7 @@ export type ProductCreateWithoutOrderItemsInput = {
   price: number
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -1153,6 +1191,7 @@ export type ProductUncheckedCreateWithoutOrderItemsInput = {
   categoryId?: string | null
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -1188,6 +1227,7 @@ export type ProductUpdateWithoutOrderItemsInput = {
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1209,6 +1249,7 @@ export type ProductUncheckedUpdateWithoutOrderItemsInput = {
   categoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1228,6 +1269,7 @@ export type ProductCreateManyCategoryInput = {
   price: number
   color?: $Enums.ProductColor | null
   images?: Prisma.ProductCreateimagesInput | string[]
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: number
   popularity?: number
@@ -1244,6 +1286,7 @@ export type ProductUpdateWithoutCategoryInput = {
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1264,6 +1307,7 @@ export type ProductUncheckedUpdateWithoutCategoryInput = {
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1284,6 +1328,7 @@ export type ProductUncheckedUpdateManyWithoutCategoryInput = {
   price?: Prisma.FloatFieldUpdateOperationsInput | number
   color?: Prisma.NullableEnumProductColorFieldUpdateOperationsInput | $Enums.ProductColor | null
   images?: Prisma.ProductUpdateimagesInput | string[]
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isOnSale?: Prisma.BoolFieldUpdateOperationsInput | boolean
   discountPercent?: Prisma.IntFieldUpdateOperationsInput | number
   popularity?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1350,6 +1395,7 @@ export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   categoryId?: boolean
   color?: boolean
   images?: boolean
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: boolean
   popularity?: boolean
@@ -1373,6 +1419,7 @@ export type ProductSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   categoryId?: boolean
   color?: boolean
   images?: boolean
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: boolean
   popularity?: boolean
@@ -1391,6 +1438,7 @@ export type ProductSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   categoryId?: boolean
   color?: boolean
   images?: boolean
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: boolean
   popularity?: boolean
@@ -1409,6 +1457,7 @@ export type ProductSelectScalar = {
   categoryId?: boolean
   color?: boolean
   images?: boolean
+  isActive?: boolean
   isOnSale?: boolean
   discountPercent?: boolean
   popularity?: boolean
@@ -1417,7 +1466,7 @@ export type ProductSelectScalar = {
   updatedAt?: boolean
 }
 
-export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "description" | "price" | "categoryId" | "color" | "images" | "isOnSale" | "discountPercent" | "popularity" | "stock" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
+export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "description" | "price" | "categoryId" | "color" | "images" | "isActive" | "isOnSale" | "discountPercent" | "popularity" | "stock" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
 export type ProductInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   category?: boolean | Prisma.Product$categoryArgs<ExtArgs>
   spec?: boolean | Prisma.Product$specArgs<ExtArgs>
@@ -1451,6 +1500,7 @@ export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     categoryId: string | null
     color: $Enums.ProductColor | null
     images: string[]
+    isActive: boolean
     isOnSale: boolean
     discountPercent: number
     popularity: number
@@ -1893,6 +1943,7 @@ export interface ProductFieldRefs {
   readonly categoryId: Prisma.FieldRef<"Product", 'String'>
   readonly color: Prisma.FieldRef<"Product", 'ProductColor'>
   readonly images: Prisma.FieldRef<"Product", 'String[]'>
+  readonly isActive: Prisma.FieldRef<"Product", 'Boolean'>
   readonly isOnSale: Prisma.FieldRef<"Product", 'Boolean'>
   readonly discountPercent: Prisma.FieldRef<"Product", 'Int'>
   readonly popularity: Prisma.FieldRef<"Product", 'Int'>

@@ -26,6 +26,9 @@ export class CreateProductDto {
   images?: string[];
 
   @IsOptional() @IsBoolean()
+  isActive?: boolean;
+
+  @IsOptional() @IsBoolean()
   isOnSale?: boolean;
 
   @IsOptional() @IsInt() @Min(0)

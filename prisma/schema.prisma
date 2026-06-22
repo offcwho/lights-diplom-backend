@@ -88,6 +88,7 @@ model Product {
   categoryId      String?
   color           ProductColor?
   images          String[]
+  isActive        Boolean       @default(true)
   isOnSale        Boolean       @default(false)
   discountPercent Int           @default(0)
   popularity      Int           @default(0)
