@@ -61,7 +61,8 @@ export const ModelName = {
   Order: 'Order',
   OrderItem: 'OrderItem',
   Address: 'Address',
-  Banner: 'Banner'
+  Banner: 'Banner',
+  Characteristics: 'Characteristics'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -233,6 +234,15 @@ export const BannerScalarFieldEnum = {
 } as const
 
 export type BannerScalarFieldEnum = (typeof BannerScalarFieldEnum)[keyof typeof BannerScalarFieldEnum]
+
+
+export const CharacteristicsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  type: 'type'
+} as const
+
+export type CharacteristicsScalarFieldEnum = (typeof CharacteristicsScalarFieldEnum)[keyof typeof CharacteristicsScalarFieldEnum]
 
 
 export const SortOrder = {

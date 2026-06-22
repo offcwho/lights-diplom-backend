@@ -394,7 +394,8 @@ export const ModelName = {
   Order: 'Order',
   OrderItem: 'OrderItem',
   Address: 'Address',
-  Banner: 'Banner'
+  Banner: 'Banner',
+  Characteristics: 'Characteristics'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -410,7 +411,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "category" | "product" | "productSpec" | "cart" | "cartItem" | "favourite" | "order" | "orderItem" | "address" | "banner"
+    modelProps: "user" | "category" | "product" | "productSpec" | "cart" | "cartItem" | "favourite" | "order" | "orderItem" | "address" | "banner" | "characteristics"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1228,6 +1229,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Characteristics: {
+      payload: Prisma.$CharacteristicsPayload<ExtArgs>
+      fields: Prisma.CharacteristicsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CharacteristicsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CharacteristicsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload>
+        }
+        findFirst: {
+          args: Prisma.CharacteristicsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CharacteristicsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload>
+        }
+        findMany: {
+          args: Prisma.CharacteristicsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload>[]
+        }
+        create: {
+          args: Prisma.CharacteristicsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload>
+        }
+        createMany: {
+          args: Prisma.CharacteristicsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CharacteristicsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload>[]
+        }
+        delete: {
+          args: Prisma.CharacteristicsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload>
+        }
+        update: {
+          args: Prisma.CharacteristicsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload>
+        }
+        deleteMany: {
+          args: Prisma.CharacteristicsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CharacteristicsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CharacteristicsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload>[]
+        }
+        upsert: {
+          args: Prisma.CharacteristicsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CharacteristicsPayload>
+        }
+        aggregate: {
+          args: Prisma.CharacteristicsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCharacteristics>
+        }
+        groupBy: {
+          args: Prisma.CharacteristicsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CharacteristicsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CharacteristicsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CharacteristicsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1422,6 +1497,15 @@ export const BannerScalarFieldEnum = {
 export type BannerScalarFieldEnum = (typeof BannerScalarFieldEnum)[keyof typeof BannerScalarFieldEnum]
 
 
+export const CharacteristicsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  type: 'type'
+} as const
+
+export type CharacteristicsScalarFieldEnum = (typeof CharacteristicsScalarFieldEnum)[keyof typeof CharacteristicsScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1556,6 +1640,20 @@ export type EnumOrderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$Pris
 export type ListEnumOrderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrderStatus[]'>
     
 
+
+/**
+ * Reference to a field of type 'CharacteristicsType'
+ */
+export type EnumCharacteristicsTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CharacteristicsType'>
+    
+
+
+/**
+ * Reference to a field of type 'CharacteristicsType[]'
+ */
+export type ListEnumCharacteristicsTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CharacteristicsType[]'>
+    
+
 /**
  * Batch Payload for updateMany & deleteMany & createMany
  */
@@ -1677,6 +1775,7 @@ export type GlobalOmitConfig = {
   orderItem?: Prisma.OrderItemOmit
   address?: Prisma.AddressOmit
   banner?: Prisma.BannerOmit
+  characteristics?: Prisma.CharacteristicsOmit
 }
 
 /* Types for Logging */

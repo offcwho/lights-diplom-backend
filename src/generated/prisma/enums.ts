@@ -37,3 +37,26 @@ export const OrderStatus = {
 } as const
 
 export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus]
+
+
+export const CharacteristicsType = {
+  model: 'model',
+  weightKg: 'weightKg',
+  shapes: 'shapes',
+  styles: 'styles',
+  rooms: 'rooms',
+  lampType: 'lampType',
+  maxAreaM2: 'maxAreaM2',
+  mountingType: 'mountingType',
+  packageSize: 'packageSize',
+  frameMaterial: 'frameMaterial',
+  frameColor: 'frameColor',
+  shadeMaterials: 'shadeMaterials',
+  shadeColors: 'shadeColors',
+  colorTemps: 'colorTemps',
+  powerW: 'powerW',
+  lumens: 'lumens',
+  lampCount: 'lampCount'
+} as const
+
+export type CharacteristicsType = (typeof CharacteristicsType)[keyof typeof CharacteristicsType]

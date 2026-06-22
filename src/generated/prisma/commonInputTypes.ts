@@ -282,6 +282,23 @@ export type EnumOrderStatusWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumOrderStatusFilter<$PrismaModel>
 }
 
+export type EnumCharacteristicsTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.CharacteristicsType | Prisma.EnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.CharacteristicsType[] | Prisma.ListEnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CharacteristicsType[] | Prisma.ListEnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCharacteristicsTypeFilter<$PrismaModel> | $Enums.CharacteristicsType
+}
+
+export type EnumCharacteristicsTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.CharacteristicsType | Prisma.EnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.CharacteristicsType[] | Prisma.ListEnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CharacteristicsType[] | Prisma.ListEnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCharacteristicsTypeWithAggregatesFilter<$PrismaModel> | $Enums.CharacteristicsType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumCharacteristicsTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumCharacteristicsTypeFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -539,6 +556,23 @@ export type NestedEnumOrderStatusWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumOrderStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumOrderStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumCharacteristicsTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.CharacteristicsType | Prisma.EnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.CharacteristicsType[] | Prisma.ListEnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CharacteristicsType[] | Prisma.ListEnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCharacteristicsTypeFilter<$PrismaModel> | $Enums.CharacteristicsType
+}
+
+export type NestedEnumCharacteristicsTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.CharacteristicsType | Prisma.EnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.CharacteristicsType[] | Prisma.ListEnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CharacteristicsType[] | Prisma.ListEnumCharacteristicsTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCharacteristicsTypeWithAggregatesFilter<$PrismaModel> | $Enums.CharacteristicsType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumCharacteristicsTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumCharacteristicsTypeFilter<$PrismaModel>
 }
 
 

@@ -94,3 +94,8 @@ export type Address = Prisma.AddressModel
  * 
  */
 export type Banner = Prisma.BannerModel
+/**
+ * Model Characteristics
+ * 
+ */
+export type Characteristics = Prisma.CharacteristicsModel
