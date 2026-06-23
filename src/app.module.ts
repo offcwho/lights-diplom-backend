@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { AddressesModule } from './addresses/addresses.module';
 import { BannersModule } from './banners/banners.module';
 import { CharacteristicsModule } from './characteristics/characteristics.module';
+import { PromoCodesModule } from './promo-codes/promo-codes.module';
 import { ReviewsModule } from './reviews/reviews.module';
 import { CartModule } from './cart/cart.module';
 import { CategoriesModule } from './categories/categories.module';
@@ -22,6 +23,7 @@ import { ProductsModule } from './products/products.module';
     AddressesModule,
     BannersModule,
     CharacteristicsModule,
+    PromoCodesModule,
     ReviewsModule,
     CartModule,
     CategoriesModule,

@@ -18,6 +18,11 @@ enum OtpPurpose {
   password_reset
 }
 
+enum DiscountType {
+  percentage
+  fixed
+}
+
 enum UserRole {
   user
   admin
@@ -224,6 +229,19 @@ model ReviewQuestion {
   userId    String
   body      String
   createdAt DateTime @default(now())
+}
+
+model PromoCode {
+  id              String       @id @default(uuid())
+  code            String       @unique
+  discountType    DiscountType
+  discountValue   Float
+  minOrderAmount  Float?
+  maxUses         Int?
+  usedCount       Int          @default(0)
+  isActive        Boolean      @default(true)
+  expiresAt       DateTime?
+  createdAt       DateTime     @default(now())
 }
 
 model OtpCode {
