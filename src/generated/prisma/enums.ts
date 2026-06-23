@@ -9,6 +9,14 @@
 * 🟢 You can import this file directly.
 */
 
+export const OtpPurpose = {
+  email_verification: 'email_verification',
+  password_reset: 'password_reset'
+} as const
+
+export type OtpPurpose = (typeof OtpPurpose)[keyof typeof OtpPurpose]
+
+
 export const UserRole = {
   user: 'user',
   admin: 'admin'

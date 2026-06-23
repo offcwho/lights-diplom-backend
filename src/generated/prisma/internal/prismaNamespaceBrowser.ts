@@ -63,6 +63,7 @@ export const ModelName = {
   Address: 'Address',
   Review: 'Review',
   ReviewQuestion: 'ReviewQuestion',
+  OtpCode: 'OtpCode',
   Banner: 'Banner',
   Characteristics: 'Characteristics'
 } as const
@@ -249,6 +250,19 @@ export const ReviewQuestionScalarFieldEnum = {
 export type ReviewQuestionScalarFieldEnum = (typeof ReviewQuestionScalarFieldEnum)[keyof typeof ReviewQuestionScalarFieldEnum]
 
 
+export const OtpCodeScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  code: 'code',
+  purpose: 'purpose',
+  pendingData: 'pendingData',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+} as const
+
+export type OtpCodeScalarFieldEnum = (typeof OtpCodeScalarFieldEnum)[keyof typeof OtpCodeScalarFieldEnum]
+
+
 export const BannerScalarFieldEnum = {
   id: 'id',
   title: 'title',
@@ -281,6 +295,14 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
 export const QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
@@ -295,4 +317,13 @@ export const NullsOrder = {
 } as const
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
