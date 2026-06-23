@@ -13,6 +13,11 @@ datasource db {
   provider = "postgresql"
 }
 
+enum OtpPurpose {
+  email_verification
+  password_reset
+}
+
 enum UserRole {
   user
   admin
@@ -219,6 +224,18 @@ model ReviewQuestion {
   userId    String
   body      String
   createdAt DateTime @default(now())
+}
+
+model OtpCode {
+  id          String     @id @default(uuid())
+  email       String
+  code        String
+  purpose     OtpPurpose
+  pendingData Json?
+  expiresAt   DateTime
+  createdAt   DateTime   @default(now())
+
+  @@index([email, purpose])
 }
 
 model Banner {

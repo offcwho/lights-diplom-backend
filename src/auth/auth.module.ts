@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { UsersModule } from '../users/users.module';
+import { EmailModule } from '../email/email.module';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies/jwt.strategy';
@@ -11,6 +12,7 @@ import { PrismaModule } from 'src/prisma/prisma.module';
   imports: [
     PrismaModule,
     UsersModule,
+    EmailModule,
     PassportModule,
     JwtModule.registerAsync({
       useFactory: () => ({
@@ -22,4 +24,4 @@ import { PrismaModule } from 'src/prisma/prisma.module';
   providers: [AuthService, JwtStrategy],
   controllers: [AuthController],
 })
-export class AuthModule { }
+export class AuthModule {}
