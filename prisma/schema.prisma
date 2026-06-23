@@ -23,6 +23,12 @@ enum DiscountType {
   fixed
 }
 
+enum SupportStatus {
+  new
+  in_progress
+  closed
+}
+
 enum UserRole {
   user
   admin
@@ -76,9 +82,10 @@ model User {
   favourites Favourite[]
   orders     Order[]
   addresses  Address[]
-  reviews    Review[]
+  reviews         Review[]
   reviewQuestions ReviewQuestion[]
-  avatarUrl  String?
+  supportTickets  SupportTicket[]
+  avatarUrl       String?
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
 }
@@ -242,6 +249,19 @@ model PromoCode {
   isActive        Boolean      @default(true)
   expiresAt       DateTime?
   createdAt       DateTime     @default(now())
+}
+
+model SupportTicket {
+  id        String        @id @default(uuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  status    SupportStatus @default(new)
+  userId    String?
+  user      User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
 }
 
 model OtpCode {

@@ -105,6 +105,11 @@ export type ReviewQuestion = Prisma.ReviewQuestionModel
  */
 export type PromoCode = Prisma.PromoCodeModel
 /**
+ * Model SupportTicket
+ * 
+ */
+export type SupportTicket = Prisma.SupportTicketModel
+/**
  * Model OtpCode
  * 
  */

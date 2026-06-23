@@ -25,6 +25,15 @@ export const DiscountType = {
 export type DiscountType = (typeof DiscountType)[keyof typeof DiscountType]
 
 
+export const SupportStatus = {
+  new: 'new',
+  in_progress: 'in_progress',
+  closed: 'closed'
+} as const
+
+export type SupportStatus = (typeof SupportStatus)[keyof typeof SupportStatus]
+
+
 export const UserRole = {
   user: 'user',
   admin: 'admin'

@@ -64,6 +64,7 @@ export const ModelName = {
   Review: 'Review',
   ReviewQuestion: 'ReviewQuestion',
   PromoCode: 'PromoCode',
+  SupportTicket: 'SupportTicket',
   OtpCode: 'OtpCode',
   Banner: 'Banner',
   Characteristics: 'Characteristics'
@@ -265,6 +266,21 @@ export const PromoCodeScalarFieldEnum = {
 } as const
 
 export type PromoCodeScalarFieldEnum = (typeof PromoCodeScalarFieldEnum)[keyof typeof PromoCodeScalarFieldEnum]
+
+
+export const SupportTicketScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  subject: 'subject',
+  message: 'message',
+  status: 'status',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupportTicketScalarFieldEnum = (typeof SupportTicketScalarFieldEnum)[keyof typeof SupportTicketScalarFieldEnum]
 
 
 export const OtpCodeScalarFieldEnum = {
