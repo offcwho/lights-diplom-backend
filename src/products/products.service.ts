@@ -128,6 +128,13 @@ export class ProductsService {
     });
   }
 
+  incrementPopularity(id: string) {
+    return this.prisma.product.update({
+      where: { id },
+      data: { popularity: { increment: 1 } },
+    });
+  }
+
   async remove(id: string) {
     await this.prisma.product.delete({ where: { id } });
     return { deleted: true };

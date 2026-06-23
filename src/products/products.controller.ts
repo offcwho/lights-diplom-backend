@@ -29,6 +29,11 @@ export class ProductsController {
     return this.service.findBySlug(slug);
   }
 
+  @Post(':id/view')
+  view(@Param('id') id: string) {
+    return this.service.incrementPopularity(id);
+  }
+
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.admin)
