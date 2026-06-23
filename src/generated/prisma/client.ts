@@ -90,6 +90,16 @@ export type OrderItem = Prisma.OrderItemModel
  */
 export type Address = Prisma.AddressModel
 /**
+ * Model Review
+ * 
+ */
+export type Review = Prisma.ReviewModel
+/**
+ * Model ReviewQuestion
+ * 
+ */
+export type ReviewQuestion = Prisma.ReviewQuestionModel
+/**
  * Model Banner
  * 
  */

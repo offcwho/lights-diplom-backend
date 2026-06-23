@@ -394,6 +394,8 @@ export const ModelName = {
   Order: 'Order',
   OrderItem: 'OrderItem',
   Address: 'Address',
+  Review: 'Review',
+  ReviewQuestion: 'ReviewQuestion',
   Banner: 'Banner',
   Characteristics: 'Characteristics'
 } as const
@@ -411,7 +413,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "category" | "product" | "productSpec" | "cart" | "cartItem" | "favourite" | "order" | "orderItem" | "address" | "banner" | "characteristics"
+    modelProps: "user" | "category" | "product" | "productSpec" | "cart" | "cartItem" | "favourite" | "order" | "orderItem" | "address" | "review" | "reviewQuestion" | "banner" | "characteristics"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1155,6 +1157,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Review: {
+      payload: Prisma.$ReviewPayload<ExtArgs>
+      fields: Prisma.ReviewFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ReviewFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ReviewFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        findFirst: {
+          args: Prisma.ReviewFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ReviewFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        findMany: {
+          args: Prisma.ReviewFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>[]
+        }
+        create: {
+          args: Prisma.ReviewCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        createMany: {
+          args: Prisma.ReviewCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ReviewCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>[]
+        }
+        delete: {
+          args: Prisma.ReviewDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        update: {
+          args: Prisma.ReviewUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        deleteMany: {
+          args: Prisma.ReviewDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ReviewUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ReviewUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>[]
+        }
+        upsert: {
+          args: Prisma.ReviewUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        aggregate: {
+          args: Prisma.ReviewAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateReview>
+        }
+        groupBy: {
+          args: Prisma.ReviewGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReviewGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ReviewCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReviewCountAggregateOutputType> | number
+        }
+      }
+    }
+    ReviewQuestion: {
+      payload: Prisma.$ReviewQuestionPayload<ExtArgs>
+      fields: Prisma.ReviewQuestionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ReviewQuestionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ReviewQuestionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload>
+        }
+        findFirst: {
+          args: Prisma.ReviewQuestionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ReviewQuestionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload>
+        }
+        findMany: {
+          args: Prisma.ReviewQuestionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload>[]
+        }
+        create: {
+          args: Prisma.ReviewQuestionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload>
+        }
+        createMany: {
+          args: Prisma.ReviewQuestionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ReviewQuestionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload>[]
+        }
+        delete: {
+          args: Prisma.ReviewQuestionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload>
+        }
+        update: {
+          args: Prisma.ReviewQuestionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload>
+        }
+        deleteMany: {
+          args: Prisma.ReviewQuestionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ReviewQuestionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ReviewQuestionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload>[]
+        }
+        upsert: {
+          args: Prisma.ReviewQuestionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewQuestionPayload>
+        }
+        aggregate: {
+          args: Prisma.ReviewQuestionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateReviewQuestion>
+        }
+        groupBy: {
+          args: Prisma.ReviewQuestionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReviewQuestionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ReviewQuestionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReviewQuestionCountAggregateOutputType> | number
+        }
+      }
+    }
     Banner: {
       payload: Prisma.$BannerPayload<ExtArgs>
       fields: Prisma.BannerFieldRefs
@@ -1483,6 +1633,31 @@ export const AddressScalarFieldEnum = {
 export type AddressScalarFieldEnum = (typeof AddressScalarFieldEnum)[keyof typeof AddressScalarFieldEnum]
 
 
+export const ReviewScalarFieldEnum = {
+  id: 'id',
+  productId: 'productId',
+  userId: 'userId',
+  rating: 'rating',
+  title: 'title',
+  body: 'body',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ReviewScalarFieldEnum = (typeof ReviewScalarFieldEnum)[keyof typeof ReviewScalarFieldEnum]
+
+
+export const ReviewQuestionScalarFieldEnum = {
+  id: 'id',
+  reviewId: 'reviewId',
+  userId: 'userId',
+  body: 'body',
+  createdAt: 'createdAt'
+} as const
+
+export type ReviewQuestionScalarFieldEnum = (typeof ReviewQuestionScalarFieldEnum)[keyof typeof ReviewQuestionScalarFieldEnum]
+
+
 export const BannerScalarFieldEnum = {
   id: 'id',
   title: 'title',
@@ -1775,6 +1950,8 @@ export type GlobalOmitConfig = {
   order?: Prisma.OrderOmit
   orderItem?: Prisma.OrderItemOmit
   address?: Prisma.AddressOmit
+  review?: Prisma.ReviewOmit
+  reviewQuestion?: Prisma.ReviewQuestionOmit
   banner?: Prisma.BannerOmit
   characteristics?: Prisma.CharacteristicsOmit
 }

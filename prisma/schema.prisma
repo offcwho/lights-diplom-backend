@@ -66,6 +66,8 @@ model User {
   favourites Favourite[]
   orders     Order[]
   addresses  Address[]
+  reviews    Review[]
+  reviewQuestions ReviewQuestion[]
   avatarUrl  String?
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
@@ -97,6 +99,7 @@ model Product {
   cartItems       CartItem[]
   favourites      Favourite[]
   orderItems      OrderItem[]
+  reviews         Review[]
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
 }
@@ -189,6 +192,32 @@ model Address {
   apartment String?
   zipCode   String?
   isDefault Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Review {
+  id        String           @id @default(uuid())
+  product   Product          @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  rating    Int
+  title     String?
+  body      String
+  questions ReviewQuestion[]
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  @@unique([userId, productId])
+}
+
+model ReviewQuestion {
+  id        String   @id @default(uuid())
+  review    Review   @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  reviewId  String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  body      String
   createdAt DateTime @default(now())
 }
 
