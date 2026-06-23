@@ -1,5 +1,6 @@
 import { IsBoolean, IsDateString, IsEnum, IsInt, IsNumber, IsOptional, IsString, MaxLength, Min } from 'class-validator';
 import { DiscountType } from '../../generated/prisma/enums';
+import { Transform } from 'class-transformer';
 
 export class CreatePromoCodeDto {
   @IsString() @MaxLength(32)
@@ -20,6 +21,7 @@ export class CreatePromoCodeDto {
   @IsOptional() @IsBoolean()
   isActive?: boolean;
 
-  @IsOptional() @IsDateString()
-  expiresAt?: string;
+  @Transform(({ value }) => value ? new Date(value) : null)
+  @IsOptional()
+  expiresAt?: Date;
 }
