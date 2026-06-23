@@ -31,6 +31,11 @@ export class OrdersController {
     return this.service.findOne(userId, id);
   }
 
+  @Post(':id/pay')
+  pay(@CurrentUser('id') userId: string, @Param('id') id: string) {
+    return this.service.pay(userId, id);
+  }
+
   @UseGuards(RolesGuard)
   @Roles(UserRole.admin)
   @Patch(':id')

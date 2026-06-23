@@ -54,6 +54,12 @@ export class OrdersService {
     return order;
   }
 
+  async pay(userId: string, id: string) {
+    const order = await this.prisma.order.findFirst({ where: { id, userId } });
+    if (!order) throw new NotFoundException('Order not found');
+    return this.prisma.order.update({ where: { id }, data: { status: 'paid' as any } });
+  }
+
   async updateStatus(id: string, status: string) {
     const order = await this.prisma.order.findUnique({ where: { id } });
     if (!order) throw new NotFoundException('Order not found');
