@@ -3,6 +3,8 @@ import { PrismaService } from '../prisma/prisma.service';
 import { CreateCharacteristicDto } from './dto/create-characteristic.dto';
 import { UpdateCharacteristicDto } from './dto/update-characteristic.dto';
 
+const ARRAY_FIELDS = new Set(['shapes', 'styles', 'rooms', 'shadeMaterials', 'shadeColors', 'colorTemps']);
+
 @Injectable()
 export class CharacteristicsService {
   constructor(private readonly prisma: PrismaService) {}
@@ -27,8 +29,15 @@ export class CharacteristicsService {
   }
 
   async remove(id: string) {
-    await this.findOne(id);
-    await this.prisma.characteristics.delete({ where: { id } });
+    const item = await this.findOne(id);
+    const field = item.type as string;
+    const clearValue = ARRAY_FIELDS.has(field) ? [] : null;
+
+    await this.prisma.$transaction([
+      this.prisma.productSpec.updateMany({ data: { [field]: clearValue } }),
+      this.prisma.characteristics.delete({ where: { id } }),
+    ]);
+
     return { deleted: true };
   }
 }
