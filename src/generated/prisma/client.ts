@@ -100,6 +100,11 @@ export type Review = Prisma.ReviewModel
  */
 export type ReviewQuestion = Prisma.ReviewQuestionModel
 /**
+ * Model PromoCode
+ * 
+ */
+export type PromoCode = Prisma.PromoCodeModel
+/**
  * Model OtpCode
  * 
  */

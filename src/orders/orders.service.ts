@@ -30,7 +30,7 @@ export class OrdersService {
           })),
         },
       },
-      include: { items: true },
+      include: { items: true, user: true },
     });
 
     await this.cartService.clear(userId);
@@ -41,14 +41,14 @@ export class OrdersService {
     return this.prisma.order.findMany({
       where: { userId },
       orderBy: { createdAt: 'desc' },
-      include: { items: true },
+      include: { items: true, user: true },
     });
   }
 
   async findOne(userId: string, id: string) {
     const order = await this.prisma.order.findFirst({
       where: { id, userId },
-      include: { items: true },
+      include: { items: true, user: true },
     });
     if (!order) throw new NotFoundException('Order not found');
     return order;

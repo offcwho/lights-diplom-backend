@@ -63,6 +63,7 @@ export const ModelName = {
   Address: 'Address',
   Review: 'Review',
   ReviewQuestion: 'ReviewQuestion',
+  PromoCode: 'PromoCode',
   OtpCode: 'OtpCode',
   Banner: 'Banner',
   Characteristics: 'Characteristics'
@@ -248,6 +249,22 @@ export const ReviewQuestionScalarFieldEnum = {
 } as const
 
 export type ReviewQuestionScalarFieldEnum = (typeof ReviewQuestionScalarFieldEnum)[keyof typeof ReviewQuestionScalarFieldEnum]
+
+
+export const PromoCodeScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  discountType: 'discountType',
+  discountValue: 'discountValue',
+  minOrderAmount: 'minOrderAmount',
+  maxUses: 'maxUses',
+  usedCount: 'usedCount',
+  isActive: 'isActive',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+} as const
+
+export type PromoCodeScalarFieldEnum = (typeof PromoCodeScalarFieldEnum)[keyof typeof PromoCodeScalarFieldEnum]
 
 
 export const OtpCodeScalarFieldEnum = {

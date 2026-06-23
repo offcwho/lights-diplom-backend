@@ -17,6 +17,14 @@ export const OtpPurpose = {
 export type OtpPurpose = (typeof OtpPurpose)[keyof typeof OtpPurpose]
 
 
+export const DiscountType = {
+  percentage: 'percentage',
+  fixed: 'fixed'
+} as const
+
+export type DiscountType = (typeof DiscountType)[keyof typeof DiscountType]
+
+
 export const UserRole = {
   user: 'user',
   admin: 'admin'
